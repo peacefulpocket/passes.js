@@ -1,0 +1,26 @@
+{
+  "name": "passes",
+  "version": "0.0.1",
+  "description": "passes.js is a library for creating Apple and Google Wallet passes, written in typescript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint-and-compile": "eslint . && tsc",
+    "build": "npm run lint-and-compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peacefulpocket/passes.js.git"
+  },
+  "author": "",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/peacefulpocket/passes.js/issues"
+  },
+  "homepage": "https://github.com/peacefulpocket/passes.js#readme",
+  "dependencies": {
+    "eslint": "^8.24.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0"
+  }
+}
