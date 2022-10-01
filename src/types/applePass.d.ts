@@ -65,6 +65,14 @@ export type AppleWalletEventTicket = AppleWalletPassFields;
 
 export type AppleWalletStoreCard = AppleWalletPassFields;
 
+export type AppleWalletPassTypes = 'BoardingPass' | 'Coupon' | 'EventTicket' | 'Generic' | 'StoreCard';
+
+export type AppleWalletNfc = {
+  encPublicKey: string,
+  message: string,
+  reqAuth: boolean,
+};
+
 export type AppleWalletPass = {
   passTypeId: string,
   serialNumber: string,
@@ -92,4 +100,8 @@ export type AppleWalletPass = {
   logoText: string,
   userInfo: object,
   personalize: AppleWalletPersonalize,
+  passType: AppleWalletPassTypes,
+  passInfo: AppleWalletBoardingPass | AppleWalletCoupon |
+  AppleWalletEventTicket | AppleWalletGeneric | AppleWalletStoreCard,
+  NFC: AppleWalletNfc,
 };
