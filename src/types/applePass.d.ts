@@ -55,6 +55,8 @@ export type AppleWalletBoardingPass = AppleWalletPassFields & { transitType: 'PK
 
 export type AppleWalletEventTicket = AppleWalletPassFields;
 
+export type AppleWalletStoreCard = AppleWalletPassFields;
+
 export type AppleWalletPass = {
   passTypeId: string,
   serialNumber: string,
