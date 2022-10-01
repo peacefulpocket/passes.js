@@ -47,6 +47,14 @@ export type AppleWalletLocation = {
   relevantText: string,
 };
 
+export type AppleWalletGeneric = AppleWalletPassFields;
+
+export type AppleWalletCoupon = AppleWalletPassFields;
+
+export type AppleWalletBoardingPass = AppleWalletPassFields & { transitType: 'PKTransitTypeAir' | 'PKTransitTypeBoat' | 'PKTransitTypeBus' | 'PKTransitTypeGeneric' | 'PKTransitTypeTrain' };
+
+export type AppleWalletEventTicket = AppleWalletPassFields;
+
 export type AppleWalletPass = {
   passTypeId: string,
   serialNumber: string,
