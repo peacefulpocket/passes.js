@@ -1,6 +1,6 @@
 import { AppleWalletPassInfo, AppleWalletPassObject } from './types/applePass';
 
-export function AppleWalletCreatePassObject(passInfo: AppleWalletPassInfo) {
+export default function AppleWalletCreatePassObject(passInfo: AppleWalletPassInfo) {
   const pass: AppleWalletPassObject = {
     formatVersion: 1,
     organizationName: passInfo.orgName,
@@ -11,8 +11,4 @@ export function AppleWalletCreatePassObject(passInfo: AppleWalletPassInfo) {
     [passInfo.passType]: passInfo.passInfo,
   };
   return pass;
-}
-
-export function AppleWalletValidatePassObject() {
-
 }
