@@ -202,7 +202,7 @@ export type AppleWalletPass = {
   logoText?: string,
   userInfo?: object,
   personalize?: AppleWalletPersonalize,
-  passType?: AppleWalletPassTypes,
+  passType: AppleWalletPassTypes,
   passInfo?: AppleWalletBoardingPass | AppleWalletCoupon |
   AppleWalletEventTicket | AppleWalletGeneric | AppleWalletStoreCard,
   NFC?: AppleWalletNfc,
