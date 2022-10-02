@@ -66,7 +66,7 @@ export type AppleWalletEventTicket = AppleWalletPassFields;
 
 export type AppleWalletStoreCard = AppleWalletPassFields;
 
-export type AppleWalletPassTypes = 'BoardingPass' | 'Coupon' | 'EventTicket' | 'Generic' | 'StoreCard';
+export type AppleWalletPassTypes = 'boardingPass' | 'coupon' | 'eventTicket' | 'generic' | 'storeCard';
 
 export type AppleWalletNfc = {
   encPublicKey: string,
