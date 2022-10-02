@@ -9,6 +9,7 @@ export default function AppleWalletCreatePassObject(passInfo: AppleWalletPassInf
     teamIdentifier: passInfo.teamId,
     description: passInfo.description,
     [passInfo.passType]: passInfo.passInfo,
+    barcodes: passInfo.barcode,
   };
   return pass;
 }
