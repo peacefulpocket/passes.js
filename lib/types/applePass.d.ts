@@ -176,7 +176,7 @@ export type AppleWalletSemantics = {
   wifiAccess?: AppleWalletSemanticTagType.wifiNetwork[],
 };
 
-export type AppleWalletPass = {
+export type AppleWalletPassInfo = {
   passTypeId: string,
   serialNumber: string,
   teamId: string,
@@ -206,5 +206,36 @@ export type AppleWalletPass = {
   passInfo?: AppleWalletBoardingPass | AppleWalletCoupon |
   AppleWalletEventTicket | AppleWalletGeneric | AppleWalletStoreCard,
   NFC?: AppleWalletNfc,
+  semantics?: AppleWalletSemantics,
+};
+
+export type AppleWalletPassObject = {
+  formatVersion: number,
+  organizationName: AppleWalletPassInfo.orgName,
+  passTypeIdentifier: AppleWalletPassInfo.passTypeId,
+  serialNumber: AppleWalletPassInfo.serialNumber,
+  teamIdentifier: AppleWalletPassInfo.teamId,
+  description: AppleWalletPassInfo.description,
+  barcodes?: AppleWalletBarcode[],
+  beacons?: AppleWalletBeacon[],
+  locations?: AppleWalletLocation[],
+  maxDistance?: number,
+  backgroundColor?: RGB,
+  foregroundColour?: RGB,
+  labelColour?: RGB,
+  sharingProhibited?: boolean,
+  suppressStripShine?: boolean,
+  voided?: boolean,
+  appLaunchURL?: string,
+  associatedStoreIdentifiers?: number[],
+  webServiceURL?: string,
+  authenticationToken?: string,
+  expirationDate?: string,
+  relevantDate?: string,
+  groupingIdentifier?: string,
+  logoText?: string,
+  userInfo?: object,
+  personalize?: AppleWalletPersonalize,
+  nfc?: AppleWalletNfc,
   semantics?: AppleWalletSemantics,
 };
