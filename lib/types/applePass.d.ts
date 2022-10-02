@@ -22,7 +22,7 @@ export type AppleWalletAuxField = AppleWalletPassFieldContent & { row: number };
 export type AppleWalletPassFields = {
   auxFields?: AppleWalletAuxField[],
   backFields?: AppleWalletPassFieldContent[],
-  HeaderFields?: AppleWalletPassFieldContent[],
+  headerFields?: AppleWalletPassFieldContent[],
   primaryFields?: AppleWalletPassFieldContent[],
   secondaryFields?: AppleWalletPassFieldContent[],
 };
