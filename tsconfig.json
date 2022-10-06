@@ -70,7 +70,4 @@
   "include": [
     "lib/**/*"
   ],
-  "exclude": [
-    "lib/**/*.test.*"
-  ]
 }
