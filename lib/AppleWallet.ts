@@ -10,6 +10,8 @@ export default function AppleWalletCreatePassObject(passInfo: AppleWalletPassInf
     description: passInfo.description,
     [passInfo.passType]: passInfo.passInfo,
     barcodes: passInfo.barcode,
+    authenticationToken: passInfo.webServiceAuth,
+    webServiceURL: passInfo.webServiceURL,
   };
   return pass;
 }
