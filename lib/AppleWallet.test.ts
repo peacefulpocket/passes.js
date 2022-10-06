@@ -73,7 +73,7 @@ describe('create pass objects', () => {
       serialNumber: '00000000002051920312',
       teamId: '8F53L4G5YL',
       description: 'Velocity Frequent Flyer',
-      fgColour: 'rgb(255, 255, 255)',
+      fgColor: 'rgb(255, 255, 255)',
       passType: 'storeCard',
       webServiceAuth: 'TESTDATADONOTUSE',
       webServiceURL: 'https://apps.virginaustralia.com/LoyaltyCardAppleWallet/',
@@ -83,8 +83,8 @@ describe('create pass objects', () => {
         messageEncoding: 'iso-8859-1',
         altText: '',
       }] as AppleWalletBarcode[],
-      labelColour: 'rgb(255, 255, 255)',
-      bgColour: 'rgb(214, 8, 59)',
+      labelColor: 'rgb(255, 255, 255)',
+      bgColor: 'rgb(214, 8, 59)',
       passInfo: {
         primaryFields: [{
           key: 'memberName',
