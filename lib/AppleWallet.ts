@@ -12,6 +12,9 @@ export default function AppleWalletCreatePassObject(passInfo: AppleWalletPassInf
     barcodes: passInfo.barcode,
     authenticationToken: passInfo.webServiceAuth,
     webServiceURL: passInfo.webServiceURL,
+    backgroundColor: passInfo.bgColor,
+    foregroundColor: passInfo.fgColor,
+    labelColor: passInfo.labelColor,
   };
   return pass;
 }
