@@ -1,6 +1,12 @@
+import { DateTime } from 'luxon';
 import AppleWalletCreatePassObject from './AppleWallet';
 import {
-  AppleWalletBarcode, AppleWalletGeneric, AppleWalletPassTypes, AppleWalletStoreCard,
+  AppleWalletBarcode,
+  AppleWalletGeneric,
+  AppleWalletPassInfo,
+  AppleWalletPassObject,
+  AppleWalletPassTypes,
+  AppleWalletStoreCard,
 } from './types';
 
 const genericPass = {
@@ -13,7 +19,7 @@ const genericPass = {
   barcode: [{
     message: 'testBarcode0',
     format: 'PKBarcodeFormatCode128',
-    messageEncoding: 'utf-8',
+    messageEncoding: 'iso-8859-1',
     altText: 'test alt text0',
   }] as AppleWalletBarcode[],
   passInfo: {
@@ -23,7 +29,50 @@ const genericPass = {
       label: 'Test Label 0',
     }],
   } as AppleWalletGeneric,
-};
+} as AppleWalletPassInfo;
+
+const eventPass = {
+  orgName: 'Example Event',
+  passTypeId: 'pass.com.example.event',
+  serialNumber: '5241131612552251420',
+  teamId: '8F53L4G5YL',
+  description: 'Example Event Pass',
+  passType: 'eventTicket' as AppleWalletPassTypes,
+  barcode: [{
+    message: '5241131612552251420211831545',
+    format: 'PKBarcodeFormatPDF417',
+    messageEncoding: 'iso-8859-1',
+    altText: '',
+  }, {
+    message: '5241131612552251420211831545',
+    format: 'PKBarcodeFormatAztec',
+    messageEncoding: 'iso-8859-1',
+    altText: '',
+  }, {
+    message: '5241131612552251420211831545',
+    format: 'PKBarcodeFormatCode128',
+    messageEncoding: 'iso-8859-1',
+    altText: '',
+  }] as AppleWalletBarcode[],
+  NFC: {
+    message: '5241131612552251420211831545',
+    encPublicKey: 'MDkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDIgACwycsOC4KaZ2eIr39Cwpm3YxK/bMO8ZuIapalsH8qSs4=',
+  },
+  semantics: {
+    duration: 14400,
+    eventName: 'Example Event',
+    eventType: 'PKEventTypeGeneric',
+  },
+  passInfo: {
+    primaryFields: [{
+      key: 'date',
+      value: DateTime.fromISO('2035-12-31T23:59:00+11:00'),
+      label: 'When:',
+    }],
+  },
+  expirationDate: DateTime.fromISO('2036-01-01T00:00:00+11:00'),
+  relevantDate: DateTime.fromISO('2035-12-31T23:59:00+11:00'),
+} as AppleWalletPassInfo;
 
 describe('create pass objects', () => {
   test('creates a pass object with the minimum required information to show on apple devices', () => {
@@ -43,7 +92,7 @@ describe('create pass objects', () => {
       teamIdentifier: genericPass.teamId,
       description: genericPass.description,
       [genericPass.passType]: {},
-    });
+    } as AppleWalletPassObject);
   });
   test('creates a generic pass object with barcode and test primary fields', () => {
     expect(AppleWalletCreatePassObject({
@@ -64,7 +113,7 @@ describe('create pass objects', () => {
       description: genericPass.description,
       barcodes: genericPass.barcode,
       [genericPass.passType]: genericPass.passInfo,
-    });
+    } as AppleWalletPassObject);
   });
   test('creates a full store pass object', () => {
     expect(AppleWalletCreatePassObject({
@@ -143,6 +192,26 @@ describe('create pass objects', () => {
           },
         ],
       },
-    });
+    } as AppleWalletPassObject);
+  });
+  test('creates an event pass object', () => {
+    expect(AppleWalletCreatePassObject(eventPass)).toEqual({
+      description: eventPass.description,
+      formatVersion: 1,
+      organizationName: eventPass.orgName,
+      teamIdentifier: eventPass.teamId,
+      passTypeIdentifier: eventPass.passTypeId,
+      serialNumber: eventPass.serialNumber,
+      barcodes: eventPass.barcode,
+      nfc: eventPass.NFC,
+      expirationDate: eventPass.expirationDate,
+      eventTicket: eventPass.passInfo,
+      relevantDate: eventPass.relevantDate,
+      semantics: {
+        duration: 14400,
+        eventName: 'Example Event',
+        eventType: 'PKEventTypeGeneric',
+      },
+    } as AppleWalletPassObject);
   });
 });
