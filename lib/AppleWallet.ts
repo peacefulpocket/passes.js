@@ -32,6 +32,8 @@ export default function AppleWalletCreatePassObject(passInfo: AppleWalletPassInf
     nfc: passInfo.NFC,
     semantics: passInfo.semantics,
   };
-  const filteredPass = Object.fromEntries(Object.entries(pass).filter(([, value]) => !!value));
+  const filteredPass = Object.fromEntries(
+    Object.entries(pass).filter(([, value]) => !!value),
+  ) as AppleWalletPassObject;
   return filteredPass;
 }
