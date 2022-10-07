@@ -3,7 +3,7 @@ import {
   AppleWalletBarcode, AppleWalletGeneric, AppleWalletPassTypes, AppleWalletStoreCard,
 } from './types';
 
-const pass = {
+const genericPass = {
   orgName: 'testOrgName',
   passTypeId: 'pass.test.type.id',
   serialNumber: 'testSerialNumber0',
@@ -28,42 +28,42 @@ const pass = {
 describe('create pass objects', () => {
   test('creates a pass object with the minimum required information to show on apple devices', () => {
     expect(AppleWalletCreatePassObject({
-      orgName: pass.orgName,
-      passTypeId: pass.passTypeId,
-      serialNumber: pass.serialNumber,
-      teamId: pass.teamId,
-      description: pass.description,
-      passType: pass.passType,
+      orgName: genericPass.orgName,
+      passTypeId: genericPass.passTypeId,
+      serialNumber: genericPass.serialNumber,
+      teamId: genericPass.teamId,
+      description: genericPass.description,
+      passType: genericPass.passType,
       passInfo: {},
     })).toEqual({
       formatVersion: 1,
-      organizationName: pass.orgName,
-      passTypeIdentifier: pass.passTypeId,
-      serialNumber: pass.serialNumber,
-      teamIdentifier: pass.teamId,
-      description: pass.description,
-      [pass.passType]: {},
+      organizationName: genericPass.orgName,
+      passTypeIdentifier: genericPass.passTypeId,
+      serialNumber: genericPass.serialNumber,
+      teamIdentifier: genericPass.teamId,
+      description: genericPass.description,
+      [genericPass.passType]: {},
     });
   });
   test('creates a generic pass with barcode and test primary fields', () => {
     expect(AppleWalletCreatePassObject({
-      orgName: pass.orgName,
-      passTypeId: pass.passTypeId,
-      serialNumber: pass.serialNumber,
-      teamId: pass.teamId,
-      description: pass.description,
-      passType: pass.passType,
-      barcode: pass.barcode,
-      passInfo: pass.passInfo,
+      orgName: genericPass.orgName,
+      passTypeId: genericPass.passTypeId,
+      serialNumber: genericPass.serialNumber,
+      teamId: genericPass.teamId,
+      description: genericPass.description,
+      passType: genericPass.passType,
+      barcode: genericPass.barcode,
+      passInfo: genericPass.passInfo,
     })).toEqual({
       formatVersion: 1,
-      organizationName: pass.orgName,
-      passTypeIdentifier: pass.passTypeId,
-      serialNumber: pass.serialNumber,
-      teamIdentifier: pass.teamId,
-      description: pass.description,
-      barcodes: pass.barcode,
-      [pass.passType]: pass.passInfo,
+      organizationName: genericPass.orgName,
+      passTypeIdentifier: genericPass.passTypeId,
+      serialNumber: genericPass.serialNumber,
+      teamIdentifier: genericPass.teamId,
+      description: genericPass.description,
+      barcodes: genericPass.barcode,
+      [genericPass.passType]: genericPass.passInfo,
     });
   });
   test('creates a fully fledged pass', () => {
