@@ -45,7 +45,7 @@ describe('create pass objects', () => {
       [genericPass.passType]: {},
     });
   });
-  test('creates a generic pass with barcode and test primary fields', () => {
+  test('creates a generic pass object with barcode and test primary fields', () => {
     expect(AppleWalletCreatePassObject({
       orgName: genericPass.orgName,
       passTypeId: genericPass.passTypeId,
@@ -66,7 +66,7 @@ describe('create pass objects', () => {
       [genericPass.passType]: genericPass.passInfo,
     });
   });
-  test('creates a fully fledged pass', () => {
+  test('creates a full store pass object', () => {
     expect(AppleWalletCreatePassObject({
       orgName: 'Virgin Australia',
       passTypeId: 'pass.com.velocityfrequentflyer.loyalty',
