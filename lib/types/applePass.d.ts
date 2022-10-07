@@ -190,7 +190,7 @@ export type AppleWalletPassInfo = {
   fgColor?: RGB,
   labelColor?: RGB,
   sharingProhib?: boolean,
-  stripShine?: boolean,
+  supressStripShine?: boolean,
   void?: boolean,
   appUrl?: string,
   associatedStoreId?: number[],
