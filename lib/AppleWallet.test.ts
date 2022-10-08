@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import AppleWalletCreatePassObject from './AppleWallet';
+import { AppleWalletCreateManifest, AppleWalletCreatePassObject } from './AppleWallet';
 import {
   AppleWalletBarcode,
   AppleWalletGeneric,
@@ -213,5 +213,18 @@ describe('create pass objects', () => {
         eventType: 'PKEventTypeGeneric',
       },
     } as AppleWalletPassObject);
+  });
+});
+
+describe('create manifests', () => {
+  test('make woolworths manifest', () => {
+    expect(AppleWalletCreateManifest('/mnt/c/Users/Lucy/Downloads/woolworths')).toEqual({
+      'icon.png': '0c3a3aa01a53ac852ced826a0f58aa648959ea63',
+      'logo.png': 'c53283522449af4f038c33ec9e95fe22631fed1d',
+      'logo@2x.png': 'fbe2c8a30a642fa5d1c3e6e66aa2d1cf33be238a',
+      'strip.png': '8c1b368a527c5bec66959df9e9fc623397f6bb80',
+      'strip@2x.png': 'f3a7ea45b5714969f15031ae00e0407a83bd1bef',
+      'pass.json': 'ff6916e5034ec73e4cd3665b83d9c70ed76bc642',
+    });
   });
 });
