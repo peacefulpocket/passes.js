@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/peacefulpocket/passes.js#readme",
   "dependencies": {
+    "@types/luxon": "^3.0.1",
     "eslint": "^8.24.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "luxon": "^3.0.4",
