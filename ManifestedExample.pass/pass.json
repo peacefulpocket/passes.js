@@ -1,0 +1,33 @@
+{
+  "formatVersion" : 1,
+  "passTypeIdentifier" : "pass.com.example.generic",
+  "serialNumber" : "7514518932051920",
+  "teamIdentifier" : "G652NXV254",
+  "barcodes" : [{
+      "message" : "TEST BARCODE DATA",
+      "format" : "PKBarcodeFormatQR",
+      "messageEncoding" : "iso-8859-1",
+      "altText" : "7514518932051920"
+  }],
+  "organizationName" : "Example Organization",
+  "description" : "Example Card",
+  "backgroundColor" : "rgb(255, 0, 154)",
+  "foregroundColor" : "rgb(255, 255, 255)",
+  "labelColor" : "rgb(255, 255, 255)",
+  "storeCard" : {
+    "headerFields" : [
+      {
+        "key" : "cardNo",
+        "label" : "Member No.",
+        "value" : "7514518932051920"
+      }
+    ],
+    "secondaryFields" : [
+      {
+        "key" : "name",
+        "value" : "Example",
+        "label" : "Hi,"
+      }
+    ]
+  }
+}
