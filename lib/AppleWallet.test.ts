@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { AppleWalletCreateManifest, AppleWalletCreatePassObject } from './AppleWallet';
+import { AppleWalletCreateManifest, AppleWalletCreatePassObject, AppleWalletSignManifest } from './AppleWallet';
 import {
   AppleWalletBarcode,
   AppleWalletGeneric,
@@ -217,14 +217,20 @@ describe('create pass objects', () => {
 });
 
 describe('create manifests', () => {
-  test('make woolworths manifest', () => {
-    expect(AppleWalletCreateManifest('/mnt/c/Users/Lucy/Downloads/woolworths')).toEqual({
-      'icon.png': '0c3a3aa01a53ac852ced826a0f58aa648959ea63',
-      'logo.png': 'c53283522449af4f038c33ec9e95fe22631fed1d',
-      'logo@2x.png': 'fbe2c8a30a642fa5d1c3e6e66aa2d1cf33be238a',
-      'strip.png': '8c1b368a527c5bec66959df9e9fc623397f6bb80',
-      'strip@2x.png': 'f3a7ea45b5714969f15031ae00e0407a83bd1bef',
-      'pass.json': 'ff6916e5034ec73e4cd3665b83d9c70ed76bc642',
+  test('make example manifest', () => {
+    expect(AppleWalletCreateManifest('Example.pass')).toEqual({
+      'icon.png': '16c5221213209c2a018aaef468299bd699bc1d60',
+      'icon@2x.png': 'bd015e30f9f4b501c0279fc23d1a59dd57a963e5',
+      'icon@3x.png': 'b03808e6e0966fc99a6ff7b41775fb61ba59cc3a',
+      'logo.png': '78e3bf7bd255783b1923d3f5391f9d55b81865da',
+      'logo@2x.png': '1ac4d20fbd844dae93f496164cb2c19a5bb2fa3e',
+      'pass.json': '37e4aeac91a4584c94e6b7900a1b6c7f18e47284',
     });
+  });
+});
+
+describe('sign manifest', () => {
+  test('sign manifest for example pass', () => {
+    AppleWalletSignManifest('ManifestedExample.pass', 'priv/keys/pass-generic.p12');
   });
 });
