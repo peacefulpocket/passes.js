@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import * as forge from 'node-forge';
 import { AppleWalletPassInfo, AppleWalletPassObject } from './types/applePass';
