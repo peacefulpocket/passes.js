@@ -231,6 +231,6 @@ describe('create manifests', () => {
 
 describe('sign manifest', () => {
   test('sign manifest for example pass', () => {
-    AppleWalletSignManifest('ManifestedExample.pass', 'priv/keys/pass-generic.p12'); // will fail without private
+    AppleWalletSignManifest('ManifestedExample.pass', 'priv/keys/pass-generic.p12');
   });
 });
