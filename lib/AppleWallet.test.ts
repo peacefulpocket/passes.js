@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { AppleWalletCreateManifest, AppleWalletCreatePassObject } from './AppleWallet';
+import { AppleWalletCreateManifest, AppleWalletCreatePassObject, AppleWalletSignManifest } from './AppleWallet';
 import {
   AppleWalletBarcode,
   AppleWalletGeneric,
@@ -226,5 +226,11 @@ describe('create manifests', () => {
       'logo@2x.png': '1ac4d20fbd844dae93f496164cb2c19a5bb2fa3e',
       'pass.json': '37e4aeac91a4584c94e6b7900a1b6c7f18e47284',
     });
+  });
+});
+
+describe('sign manifest', () => {
+  test('sign manifest for example pass', () => {
+    AppleWalletSignManifest('ManifestedExample.pass', 'priv/keys/pass-generic.p12');
   });
 });
