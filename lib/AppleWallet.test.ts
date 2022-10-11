@@ -239,3 +239,17 @@ describe('sign manifest', () => {
     AppleWalletSignManifest('ManifestedExample.pass', 'priv/keys/pass-generic.p12');
   });
 });
+
+describe('generate full pass', () => {
+  test('create a full pass from a template', () => {
+    AppleWalletCreatePass({
+      orgName: genericPass.orgName,
+      passTypeId: genericPass.passTypeId,
+      serialNumber: genericPass.serialNumber,
+      teamId: genericPass.teamId,
+      description: genericPass.description,
+      passType: genericPass.passType,
+      passInfo: {},
+    }, 'priv/keys/pass-generic.p12');
+  });
+});
