@@ -104,5 +104,6 @@ export function AppleWalletCreatePass(passInfo: AppleWalletPassInfo, signCertPat
   const dir = mkdtempSync('pass-');
   writeFileSync(`${dir}/pass.json`, JSON.stringify(AppleWalletCreatePassObject(passInfo)));
   writeFileSync(`${dir}/manifest.json`, JSON.stringify(AppleWalletCreateManifest(dir)));
+  writeFileSync(`${dir}/signature`, AppleWalletSignManifest(dir, signCertPath));
   rmSync(dir, { recursive: true, force: true });
 }
