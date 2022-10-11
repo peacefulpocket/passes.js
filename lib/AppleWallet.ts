@@ -115,6 +115,10 @@ export function AppleWalletCreatePass(
     missingImage.push(val);
     return false;
   });
+  if (!requiredImages) {
+    rmSync(dir, { recursive: true, force: true });
+    throw new Error(`Required image not in directory (${missingImage})`);
+  }
   writeFileSync(`${dir}/manifest.json`, JSON.stringify(AppleWalletCreateManifest(dir)));
   writeFileSync(`${dir}/signature`, AppleWalletSignManifest(dir, signCertPath));
   rmSync(dir, { recursive: true, force: true });
