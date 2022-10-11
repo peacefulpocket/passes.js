@@ -107,6 +107,14 @@ export function AppleWalletCreatePass(
   const dir = mkdtempSync('pass-');
   writeFileSync(`${dir}/pass.json`, JSON.stringify(AppleWalletCreatePassObject(passInfo)));
   const images = readdirSync(imagesPath);
+  const missingImage: string[] = [];
+  const requiredImages = ['logo.png', 'icon.png'].every((val) => {
+    if (images.includes(val)) {
+      return true;
+    }
+    missingImage.push(val);
+    return false;
+  });
   writeFileSync(`${dir}/manifest.json`, JSON.stringify(AppleWalletCreateManifest(dir)));
   writeFileSync(`${dir}/signature`, AppleWalletSignManifest(dir, signCertPath));
   rmSync(dir, { recursive: true, force: true });
