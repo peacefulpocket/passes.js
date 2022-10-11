@@ -100,7 +100,7 @@ export function AppleWalletSignManifest(manifestPath: string, signCertPath: stri
   return Buffer.from(forge.asn1.toDer(pkcs7.toAsn1()).getBytes(), 'binary');
 }
 
-export function AppleWalletCreatePass(passInfo: AppleWalletPassInfo) {
+export function AppleWalletCreatePass(passInfo: AppleWalletPassInfo, signCertPath: string) {
   const dir = mkdtempSync('pass-');
   writeFileSync(`${dir}/pass.json`, JSON.stringify(AppleWalletCreatePassObject(passInfo)));
   writeFileSync(`${dir}/manifest.json`, JSON.stringify(AppleWalletCreateManifest(dir)));
