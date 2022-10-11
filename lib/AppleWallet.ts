@@ -122,6 +122,26 @@ export function AppleWalletCreatePass(
     rmSync(dir, { recursive: true, force: true });
     throw new Error(`Required image not in directory (${missingImage})`);
   }
+  images.forEach((image) => {
+    switch (passInfo.passType) {
+      case 'boardingPass':
+        if (image.startsWith('footer')) {
+          sharp()
+            .resize(858, 45)
+            .composite([{
+              input: readFileSync(`${imagesPath}/${image}`),
+            }])
+            .png()
+            .toBuffer()
+            .then((footer) => {
+              writeFileSync(`${dir}/footer@3x.png`, footer);
+            });
+        }
+        break;
+      default:
+        throw new Error('Unknown pass type');
+    }
+  });
   writeFileSync(`${dir}/manifest.json`, JSON.stringify(AppleWalletCreateManifest(dir)));
   writeFileSync(`${dir}/signature`, AppleWalletSignManifest(dir, signCertPath));
   const pkPass = new JSZip();
