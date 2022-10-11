@@ -99,3 +99,6 @@ export function AppleWalletSignManifest(manifestPath: string, signCertPath: stri
   writeFileSync(`${manifestPath}/signature`, Buffer.from(forge.asn1.toDer(pkcs7.toAsn1()).getBytes(), 'binary'));
   return Buffer.from(forge.asn1.toDer(pkcs7.toAsn1()).getBytes(), 'binary');
 }
+
+export function AppleWalletCreatePass(passInfo: AppleWalletPassInfo) {
+}
