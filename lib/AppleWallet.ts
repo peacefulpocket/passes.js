@@ -101,4 +101,5 @@ export function AppleWalletSignManifest(manifestPath: string, signCertPath: stri
 }
 
 export function AppleWalletCreatePass(passInfo: AppleWalletPassInfo) {
+  const dir = mkdtempSync('pass-');
 }
