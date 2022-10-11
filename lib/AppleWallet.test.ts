@@ -250,6 +250,6 @@ describe('generate full pass', () => {
       description: genericPass.description,
       passType: genericPass.passType,
       passInfo: {},
-    }, 'priv/keys/pass-generic.p12');
+    }, 'priv/keys/pass-generic.p12', 'Example.pass');
   });
 });
