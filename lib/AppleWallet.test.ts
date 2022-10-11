@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
 import {
   AppleWalletCreateManifest,
+  AppleWalletCreatePass,
   AppleWalletCreatePassObject,
   AppleWalletSignManifest,
 } from './AppleWallet';
