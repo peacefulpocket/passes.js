@@ -124,5 +124,11 @@ export function AppleWalletCreatePass(
   }
   writeFileSync(`${dir}/manifest.json`, JSON.stringify(AppleWalletCreateManifest(dir)));
   writeFileSync(`${dir}/signature`, AppleWalletSignManifest(dir, signCertPath));
+  const pkPass = new JSZip();
+  readdirSync(dir).forEach((passFile) => {
+    pkPass.file(passFile, readFileSync(`${dir}/${passFile}`));
+  });
+  pkPass.generateNodeStream({ type: 'nodebuffer', streamFiles: true })
+    .pipe(createWriteStream(`${dir}.pkpass`));
   rmSync(dir, { recursive: true, force: true });
 }
