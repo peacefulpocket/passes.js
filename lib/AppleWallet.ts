@@ -49,8 +49,7 @@ export function AppleWalletCreatePassObject(passInfo: AppleWalletPassInfo) {
 
 export function AppleWalletCreateManifest(folderPath: string) {
   const manifestArray: { name: string, sha1: string }[] = [];
-  const files = readdirSync(folderPath);
-  files.forEach((file) => {
+  readdirSync(folderPath).forEach((file) => {
     const fileBuffer = readFileSync(`${folderPath}/${file}`);
     const sha1 = createHash('sha1');
     sha1.update(fileBuffer);
