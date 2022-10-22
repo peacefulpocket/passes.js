@@ -5,6 +5,7 @@ import {
   mkdtempSync,
   rmSync,
   createWriteStream,
+  cpSync,
 } from 'node:fs';
 import { createHash } from 'node:crypto';
 import * as forge from 'node-forge';
