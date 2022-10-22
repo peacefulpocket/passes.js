@@ -263,6 +263,17 @@ describe('generate full pass', () => {
       passInfo: genericPass.passInfo,
     }, 'priv/keys/pass-generic.p12', 'Example.pass');
   });
+  test('create a coupon from a template', () => {
+    AppleWalletCreatePass({
+      orgName: genericPass.orgName,
+      passTypeId: genericPass.passTypeId,
+      serialNumber: genericPass.serialNumber,
+      teamId: genericPass.teamId,
+      description: genericPass.description,
+      passType: 'coupon' as AppleWalletPassTypes,
+      passInfo: genericPass.passInfo,
+    }, 'priv/keys/pass-generic.p12', 'Example.pass');
+  });
   test('test that errors throw correctly', () => {
     expect(() => {
       AppleWalletCreatePass({
