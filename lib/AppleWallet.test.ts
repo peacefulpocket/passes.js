@@ -230,6 +230,12 @@ describe('create manifests', () => {
       'logo.png': '78e3bf7bd255783b1923d3f5391f9d55b81865da',
       'logo@2x.png': '1ac4d20fbd844dae93f496164cb2c19a5bb2fa3e',
       'pass.json': '37e4aeac91a4584c94e6b7900a1b6c7f18e47284',
+      'strip.png': 'c1fdc605b46e2c194afa2afb7b65200f8b45c30f',
+      'strip@2x.png': '8b9812aaa47a57e21097bbd9a272c5e8c3a8bd8c',
+      'background.png': 'dd157da2a24db110b880baef588b40f5a44577b9',
+      'background@2x.png': 'd98bbb39c14359a504184502913371f81761f716',
+      'thumbnail.png': 'dd157da2a24db110b880baef588b40f5a44577b9',
+      'thumbnail@2x.png': 'd98bbb39c14359a504184502913371f81761f716',
     });
   });
 });
