@@ -145,3 +145,4 @@ config.json
 priv/
 ManifestedExample.pass/signature
 *.pkpass
+pass-*/
