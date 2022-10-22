@@ -252,6 +252,17 @@ describe('generate full pass', () => {
       passInfo: {},
     }, 'priv/keys/pass-generic.p12', 'Example.pass');
   });
+  test('create a boarding pass from a template', () => {
+    AppleWalletCreatePass({
+      orgName: genericPass.orgName,
+      passTypeId: genericPass.passTypeId,
+      serialNumber: genericPass.serialNumber,
+      teamId: genericPass.teamId,
+      description: genericPass.description,
+      passType: 'boardingPass' as AppleWalletPassTypes,
+      passInfo: genericPass.passInfo,
+    }, 'priv/keys/pass-generic.p12', 'Example.pass');
+  });
   test('test that errors throw correctly', () => {
     expect(() => {
       AppleWalletCreatePass({
