@@ -274,6 +274,17 @@ describe('generate full pass', () => {
       passInfo: genericPass.passInfo,
     }, 'priv/keys/pass-generic.p12', 'Example.pass');
   });
+  test('create an event ticket from a template', () => {
+    AppleWalletCreatePass({
+      orgName: genericPass.orgName,
+      passTypeId: genericPass.passTypeId,
+      serialNumber: genericPass.serialNumber,
+      teamId: genericPass.teamId,
+      description: genericPass.description,
+      passType: 'eventTicket' as AppleWalletPassTypes,
+      passInfo: genericPass.passInfo,
+    }, 'priv/keys/pass-generic.p12', 'Example.pass');
+  });
   test('test that errors throw correctly', () => {
     expect(() => {
       AppleWalletCreatePass({
