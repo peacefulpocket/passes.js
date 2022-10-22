@@ -10,7 +10,6 @@ import {
 import { createHash } from 'node:crypto';
 import * as forge from 'node-forge';
 import JSZip from 'jszip';
-import sharp from 'sharp';
 import { AppleWalletPassInfo, AppleWalletPassObject } from './types/applePass';
 
 export function AppleWalletCreatePassObject(passInfo: AppleWalletPassInfo) {
