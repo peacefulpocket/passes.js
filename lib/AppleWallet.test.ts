@@ -315,4 +315,17 @@ describe('generate full pass', () => {
       }, 'priv/keys/pass-generic.p12', './');
     }).toThrow();
   });
+  test('test that image errors throw correctly', () => {
+    expect(() => {
+      AppleWalletCreatePass({
+        orgName: genericPass.orgName,
+        passTypeId: genericPass.passTypeId,
+        serialNumber: genericPass.serialNumber,
+        teamId: genericPass.teamId,
+        description: genericPass.description,
+        passType: 'eventTicket',
+        passInfo: {},
+      }, 'priv/keys/pass-generic.p12', 'Example.pass');
+    }).toThrow();
+  });
 });
