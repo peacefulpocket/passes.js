@@ -289,7 +289,7 @@ describe('generate full pass', () => {
       description: genericPass.description,
       passType: 'eventTicket' as AppleWalletPassTypes,
       passInfo: genericPass.passInfo,
-    }, 'priv/keys/pass-generic.p12', 'Example.pass');
+    }, 'priv/keys/pass-generic.p12', 'ExampleWithoutStrip.pass');
   });
   test('create a store card from a template', () => {
     AppleWalletCreatePass({
