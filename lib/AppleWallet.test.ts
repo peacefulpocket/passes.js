@@ -236,6 +236,8 @@ describe('create manifests', () => {
       'background@2x.png': 'd98bbb39c14359a504184502913371f81761f716',
       'thumbnail.png': 'dd157da2a24db110b880baef588b40f5a44577b9',
       'thumbnail@2x.png': 'd98bbb39c14359a504184502913371f81761f716',
+      'footer.png': '05e3c078f49328cf027c0bd0d9d80d7edd32e3d0',
+      'footer@2x.png': '9c163e97980f88e85b215dc44b45e33914c86d85',
     });
   });
 });
