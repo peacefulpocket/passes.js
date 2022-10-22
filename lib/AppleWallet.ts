@@ -136,18 +136,41 @@ export function AppleWalletCreatePass(
     switch (passInfo.passType) {
       case 'boardingPass':
         if (image.startsWith('footer')) {
-          sharp()
-            .resize(858, 45)
-            .composite([{
-              input: readFileSync(`${imagesPath}/${image}`),
-            }])
-            .png()
-            .toBuffer()
-            .then((footer) => {
-              writeFileSync(`${dir}/footer@3x.png`, footer);
-            });
+          cpSync(`${imagesPath}/${image}`, `${dir}/${image}`);
         }
         break;
+      case 'generic':
+        if (image.startsWith('thumbnail')) {
+          cpSync(`${imagesPath}/${image}`, `${dir}/${image}`);
+        }
+        break;
+      case 'coupon':
+      case 'storeCard': // non conditional strip
+        if (image.startsWith('strip')) {
+          cpSync(`${imagesPath}/${image}`, `${dir}/${image}`);
+        }
+        break;
+      case 'eventTicket': { // eventTickets have conditional strips or background and thumbnail
+        const filteredEvent = images.filter((eventImage) => eventImage.startsWith('background') || eventImage.startsWith('thumbnail') || eventImage.startsWith('strip'));
+        const bgOrThumb = filteredEvent.some((eventImage) => eventImage.startsWith('background') || eventImage.startsWith('thumbnail'));
+        const strip = filteredEvent.some((eventImage) => eventImage.startsWith('strip'));
+        const conflict = bgOrThumb && strip;
+        if (conflict) throw new Error('Conflicting images for eventTicket in images directory');
+        switch (image) {
+          case image.startsWith('background') ? image : '':
+            cpSync(`${imagesPath}/${image}`, `${dir}/${image}`);
+            break;
+          case image.startsWith('thumbnail') ? image : '':
+            cpSync(`${imagesPath}/${image}`, `${dir}/${image}`);
+            break;
+          case image.startsWith('strip') ? image : '':
+            cpSync(`${imagesPath}/${image}`, `${dir}/${image}`);
+            break;
+          default:
+            break;
+        }
+        break;
+      }
       default:
         throw new Error('Unknown pass type');
     }
