@@ -123,6 +123,16 @@ export function AppleWalletCreatePass(
     throw new Error(`Required image not in directory (${missingImage})`);
   }
   images.forEach((image) => {
+    switch (image) { // all common images
+      case image.startsWith('logo') ? image : '':
+        cpSync(`${imagesPath}/${image}`, `${dir}/${image}`);
+        break;
+      case image.startsWith('icon') ? image : '':
+        cpSync(`${imagesPath}/${image}`, `${dir}/${image}`);
+        break;
+      default:
+        break;
+    }
     switch (passInfo.passType) {
       case 'boardingPass':
         if (image.startsWith('footer')) {
