@@ -241,7 +241,7 @@ describe('sign manifest', () => {
 });
 
 describe('generate full pass', () => {
-  test('create a full pass from a template', () => {
+  test('create a generic pass from a template', () => {
     AppleWalletCreatePass({
       orgName: genericPass.orgName,
       passTypeId: genericPass.passTypeId,
